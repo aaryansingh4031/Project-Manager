@@ -4,10 +4,19 @@ import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import Verification from "../models/verification.js";
 import { sendEmail } from "../libs/send-email.js";
+import aj from "../libs/arcjet.js";
 
 const registerUser = async (req, res) => {
   try {
     const { email, name, password } = req.body;
+
+     const decision = await aj.protect(req, { email }); // Deduct 5 tokens from the bucket
+  console.log("Arcjet decision", decision);
+
+  if (decision.isDenied()) {
+      res.writeHead(403, { "Content-Type": "application/json" });
+      res.end(JSON.stringify({ message: "Invalid email address" }));
+    } 
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
