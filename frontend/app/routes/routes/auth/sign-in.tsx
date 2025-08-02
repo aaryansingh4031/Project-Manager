@@ -3,7 +3,6 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import type z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { log } from 'util';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -53,7 +52,10 @@ const SignIn = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                     <FormLabel>Password</FormLabel>
+                     <div className='flex items-center justify-between'>
+                      <FormLabel>Password</FormLabel>
+                      <Link to="/forgot-password" className='text-sm text-blue-600'>Forgot Password?</Link>
+                     </div>
                      <FormControl>
                       <Input type='email' placeholder='********' {...field} />
                      </FormControl>
@@ -63,7 +65,7 @@ const SignIn = () => {
               <Button type='submit' className='w-full'>Sign In</Button>
             </form>
           </Form>
-          <CardFooter>
+          <CardFooter className='flex items-center justify-center mt-6'>
             <div className='flex items-center justify-center'>
               <p className='text-sm text-muted-foreground'>
                 Don&apos;t have an account?{" "} 
