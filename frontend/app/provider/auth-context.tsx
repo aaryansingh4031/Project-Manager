@@ -2,7 +2,7 @@ import type { User } from "@/types";
 import { createContext, useContext, useEffect, useState } from "react";
 import { queryClient } from "./react-query-provider";
 import { useLocation, useNavigate } from "react-router";
-import { publicRoutes } from "@/lib/index";
+import { publicRoutes } from "@/lib";
 
 interface AuthContextType {
   user: User | null;
