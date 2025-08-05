@@ -16,6 +16,9 @@ export default [
                 "workspaces/:workspaceId",
                 "routes/routes/dashboard/workspaces/workspace-details.tsx"
             ),
-        
+        route(
+                "workspaces/:workspaceId/projects/:projectId",
+                "routes/routes/dashboard/project/project-details.tsx"
+            ),
     ]),
 ] satisfies RouteConfig;
