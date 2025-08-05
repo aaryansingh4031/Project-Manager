@@ -11,10 +11,10 @@ export default [
     ]),
     layout("routes/routes/dashboard/dashboard-layout.tsx", [
         route("dashboard", "routes/routes/dashboard/index.tsx"),
-        route("workspaces", "routes/dashboard/workspaces/index.tsx"),
+        route("workspaces", "routes/routes/dashboard/workspaces/index.tsx"),
         route(
                 "workspaces/:workspaceId",
-                "routes/dashboard/workspaces/workspace-details.tsx"
+                "routes/routes/dashboard/workspaces/workspace-details.tsx"
             ),
         
     ]),

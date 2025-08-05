@@ -93,3 +93,10 @@ export interface Attachment {
   uploadedAt: Date;
   _id: string;
 }
+
+export interface MemberProps {
+  _id: string;
+  user: User;
+  role: "admin" | "member" | "owner" | "viewer";
+  joinedAt: Date;
+}
