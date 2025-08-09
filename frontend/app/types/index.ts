@@ -22,7 +22,6 @@ export interface Workspace {
   createdAt: Date;
   updatedAt: Date;
 }
-
 export enum ProjectStatus {
   PLANNING = "Planning",
   IN_PROGRESS = "In Progress",
@@ -49,7 +48,6 @@ export interface Project {
   updatedAt: Date;
   isArchived: boolean;
 }
-
 export type TaskStatus = "To Do" | "In Progress" | "Done";
 export type TaskPriority = "High" | "Medium" | "Low";
 export enum ProjectMemberRole {
@@ -152,4 +150,38 @@ export interface Comment {
     fileType?: string;
     fileSize?: number;
   }[];
+}
+
+export interface StatsCardProps {
+  totalProjects: number;
+  totalTasks: number;
+  totalProjectInProgress: number;
+  totalTaskCompleted: number;
+  totalTaskToDo: number;
+  totalTaskInProgress: number;
+}
+
+export interface TaskTrendsData {
+  name: string;
+  completed: number;
+  inProgress: number;
+  todo: number;
+}
+
+export interface TaskPriorityData {
+  name: string;
+  value: number;
+  color: string;
+}
+
+export interface ProjectStatusData {
+  name: string;
+  value: number;
+  color: string;
+}
+
+export interface WorkspaceProductivityData {
+  name: string;
+  completed: number;
+  total: number;
 }

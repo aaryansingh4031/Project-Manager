@@ -1,5 +1,5 @@
 import React from "react";
-import type { Route } from "../../+types/root";
+import type { Route } from "../../../+types/root";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router";
 
