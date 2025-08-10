@@ -19,8 +19,8 @@ const Dashboard = () => {
   const [searchParams] = useSearchParams();
   const workspaceId = searchParams.get("workspaceId");
 
-  const { data, isPending } = useGetWorkspaceStatsQuery(workspaceId || "") as {
-    data?: {
+  const { data, isPending } = useGetWorkspaceStatsQuery(workspaceId!) as {
+    data: {
       stats: StatsCardProps;
       taskTrendsData: TaskTrendsData[];
       projectStatusData: ProjectStatusData[];
@@ -32,7 +32,7 @@ const Dashboard = () => {
     isPending: boolean;
   };
 
-  if (isPending || !data) {
+  if (isPending) {
     return (
       <div>
         <Loader />
@@ -46,7 +46,7 @@ const Dashboard = () => {
         <h1 className="text-2xl font-bold">Dashboard</h1>
       </div>
 
-      {data.stats && <StatsCard data={data.stats} />}
+      <StatsCard data={data.stats} />
 
       <StatisticsCharts
         stats={data.stats}
@@ -57,8 +57,8 @@ const Dashboard = () => {
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
-        {data.recentProjects && <RecentProjects data={data.recentProjects} />}
-        {data.upcomingTasks && <UpcomingTasks data={data.upcomingTasks} />}
+        <RecentProjects data={data.recentProjects} />
+        <UpcomingTasks data={data.upcomingTasks} />
       </div>
     </div>
   );
